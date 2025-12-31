@@ -4,10 +4,25 @@
 # Basic Function
 # Define a basic function that only prints Hello. Create the definition using def and the call that executes it.
 
+### ANSWER ###
+
+def say_hello():
+     print("Hello")
+say_hello()
+
 # ----------------------------------------------------------------------------------------------------------------------
 
 # Basic Function with Parameters
 # Define a basic function that prints a greeting taking a given name.
+
+### ANSWER ###
+
+def greet(name):
+    print(f"Hello, {name}!")
+
+greet("Beth")
+greet("solae")
+
 
 # ----------------------------------------------------------------------------------------------------------------------
 
@@ -21,6 +36,15 @@
 # Prints: Hello, Tom!
 # greeting('Tom')
 
+### ANSWER ###
+
+def greeting(name="stranger"):
+    print(f"Hello, {name}!")
+
+greeting()
+greeting("Tom")
+
+
 # ----------------------------------------------------------------------------------------------------------------------
 
 # Multiple Parameters
@@ -31,6 +55,15 @@
 
 # Prints (default values might be useful): The sum of 1 + 0 = 1
 # add(1)
+
+### ANSWER ###
+
+def add(a, b=0):
+    total = a + b
+    print(f"The sum of {a} + {b} = {total}")
+
+add(1, 2)
+add(1)
 
 # ----------------------------------------------------------------------------------------------------------------------
 
@@ -45,6 +78,15 @@
 # Is there anything you can add to the line below, so the function also prints "Nelson Mandela"?
 # full_name("Mandela", "Nelson")
 
+### ANSWER ###
+
+def full_name(first_name, last_name):
+    print(f"{first_name} {last_name}")
+
+full_name("Nelson", "Mandela")
+full_name(last_name="Mandela", first_name="Nelson")
+
+
 # ----------------------------------------------------------------------------------------------------------------------
 
 # Returning Values
@@ -53,6 +95,19 @@
 # list using a for loop.
 
 # Tip: Validator functions return True / False which we can use in conditionals to do things like print a message.
+
+### ANSWER ###
+
+def is_long_word(word):
+    return len(word) > 8
+
+words = ["apple", "strawberry", "banana", "extraordinary", "cat"]
+
+for word in words:
+    if is_long_word(word):
+        print(f"'{word}' is longer than 8 characters.")
+    else:
+        print(f"'{word}' is NOT longer than 8 characters.")
 
 # ----------------------------------------------------------------------------------------------------------------------
 
@@ -75,6 +130,23 @@
 
 # Call the function here
 
+### ANSWER ###
+
+def fizzbuzz(number):
+    if number % 3 == 0 and number % 5 == 0:
+        return "FizzBuzz"
+    elif number % 3 == 0:
+        return "Fizz"
+    elif number % 5 == 0:
+        return "Buzz"
+    else:
+        return number
+
+print(fizzbuzz(3))
+print(fizzbuzz(5))
+print(fizzbuzz(15))
+print(fizzbuzz(7))
+
 # ----------------------------------------------------------------------------------------------------------------------
 
 # Anagram
@@ -95,6 +167,28 @@
 test_str1 = 'abcde'
 test_str2 = 'edcba'
 
+### ANSWER ###
+
+def is_anagram(str1, str2):
+    # Step 1: Check length
+    if len(str1) != len(str2):
+        return False
+
+    # Step 2: Sort both strings and compare
+    return sorted(str1) == sorted(str2)
+
+test_str1 = 'abcde'
+test_str2 = 'edcba'
+
+result = is_anagram(test_str1, test_str2)
+
+if result:
+    print("The strings are anagrams.")
+else:
+    print("The strings are NOT anagrams.")
+  
+
+
 # ----------------------------------------------------------------------------------------------------------------------
 
 # Find Max number
@@ -114,6 +208,20 @@ test_str2 = 'edcba'
 
 # Output should be the maximum number in the list.
 
+ ### ANSWER ###
+
+def find_max(numbers):
+    result = numbers[0]
+
+    for number in numbers:
+        if number > result:
+            result = number
+
+    return result
+
+nums = [3, 7, 2, 9, 5]
+print(find_max(nums))
+
 # ----------------------------------------------------------------------------------------------------------------------
 
 # Even/Odd Checker Function
@@ -128,3 +236,18 @@ test_str2 = 'edcba'
 # Define a function is_even_odd(number) here
 
 # Test the function calling it using a variety of numbers like: 1, 10, 5.5, 9
+
+
+### ANSWER ###
+
+def is_even_odd(number):
+    if number % 2 == 0:
+        print("Even")
+    else:
+        print("Odd")
+is_even_odd(1)
+is_even_odd(10)
+is_even_odd(5.5)
+is_even_odd(9)
+          
+
