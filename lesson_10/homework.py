@@ -1,4 +1,4 @@
-# Homework: Classes
+    # Homework: Classes
 # Read carefully until the end before you start solving the exercises.
 
 # Practice the Basics
@@ -10,6 +10,30 @@
 # - Add number_of_rooms and price as instance attributes.
 # - Create print statements that show the attribute values for the instances.
 
+### ANSWER ###
+
+# Create an empty class
+class HouseForSale:
+    pass
+
+house1 = HouseForSale()
+house2 = HouseForSale()
+
+house1.number_of_rooms = 3
+house1.price = 250000
+
+house2.number_of_rooms = 5
+house2.price = 420000
+
+print("House 1:")
+print("Rooms:", house1.number_of_rooms)
+print("Price:", house1.price)
+
+print("\nHouse 2:")
+print("Rooms:", house2.number_of_rooms)
+print("Price:", house2.price)
+
+
 # ----------------------------------------------------------------------------------------------------------------------
 
 # Instance Methods
@@ -20,6 +44,21 @@
 #   - turn_off that prints Computer has Turned Off
 # - Create an instance of the Computer class then call each method.
 
+### ANSWER ###
+
+# Create a Computer class
+class Computer:
+    def turn_on(self): 
+        print("Computer has Turned On")
+
+    def turn_off(self):
+        print("Computer has Turned Off")
+
+my_computer = Computer()
+
+my_com puter.turn_on()
+my_computer.turn_off()
+
 # ----------------------------------------------------------------------------------------------------------------------
 
 # Constructor with Parameters
@@ -27,6 +66,19 @@
 # - Create a Dog class.
 # - Dog should have a constructor with a name parameter.
 # - Dog should have a method say_name that prints the name of the dog.
+
+### ANSWER ###
+class Dog:
+    def __init__(self, name):
+        self.name = name
+
+    def say_name(self):
+        print(self.name)
+
+my_dog = Dog("Buddy")
+
+my_dog.say_name()
+
 
 # ----------------------------------------------------------------------------------------------------------------------
 
@@ -46,6 +98,53 @@
 # cat = Cat('Max')
 # cat.say_name()      # Prints: Max
 # cat.speak()         # Prints: Meow!
+
+### ANSWER ###
+
+# Base class
+class Animal:
+    def __init__(self, name=None):
+        self.name = name
+
+    def say_name(self):
+        if self.name:
+            print(self.name)
+        else:
+            print("I don't have a name yet.")
+
+    def speak(self):
+        print("I can't speak!")
+
+
+class Dog(Animal):
+    def __init__(self, name):
+        super().__init__(name)
+
+    def speak(self):
+        print("Woof!")
+
+
+class Cat(Animal):
+    def __init__(self, name):
+        super().__init__(name)
+
+    def speak(self):
+        print("Meow!")
+
+
+# Example 
+animal = Animal()
+animal.say_name()   # I don't have a name yet.
+animal.speak()      # I can't speak!
+
+dog = Dog('Fido')
+dog.say_name()      # Fido
+dog.speak()         # Woof!
+
+cat = Cat('Max')
+cat.say_name()      # Max
+cat.speak()         # Meow!
+
 
 # ----------------------------------------------------------------------------------------------------------------------
 
@@ -67,6 +166,39 @@
 
 # Your code here
 
+### ANSWER ###
+
+# Create an empty class
+class Book:
+    pass
+
+book1 = Book()
+book2 = Book()
+book3 = Book()
+
+book1.title = "To Kill a Mockingbird"
+book1.author = "Harper Lee"
+book1.publication_year = 1960
+
+book2.title = "1984"
+book2.author = "George Orwell"
+book2.publication_year = 1949
+
+book3.title = "The Great Gatsby"
+book3.author = "F. Scott Fitzgerald"
+book3.publication_year = 1925
+
+print("Book 1:")
+print(book1.title, "-", book1.author, "-", book1.publication_year)
+
+print("\nBook 2:")
+print(book2.title, "-", book2.author, "-", book2.publication_year)
+
+print("\nBook 3:")
+print(book3.title, "-", book3.author, "-", book3.publication_year)
+
+
+
 # ----------------------------------------------------------------------------------------------------------------------
 
 # Exercise 2. Vehicle and Types of Vehicles
@@ -77,6 +209,33 @@
 #   message: "<NAME_OF_VEHICLE> is a <TYPE_OF_VEHICLE>"
 # - Create Car and Bike classes that inherit from Vehicle.
 # - Create instances of Car and Bike and make them show their types.
+
+### ANSWER ###
+
+# Base class
+class Vehicle:
+    def __init__(self, name, vehicle_type):
+        self.name = name
+        self.vehicle_type = vehicle_type
+
+    def show_type(self):
+        print(f"{self.name} is a {self.vehicle_type}")
+
+
+class Car(Vehicle):
+    pass
+
+
+class Bike(Vehicle):
+    pass
+
+
+car = Car("Toyota", "Car")
+bike = Bike("Yamaha", "Bike")
+
+car.show_type()
+bike.show_type()
+
 
 # ----------------------------------------------------------------------------------------------------------------------
 
@@ -97,6 +256,21 @@
 # my_car = Car("Toyota")
 # print(my_car.model)
 # print(my_car.year)
+
+### ANSWER ###
+
+# Create a Car class
+class Car:
+    def __init__(self, model, year):
+        self.model = model
+
+        self.year = year
+
+my_car = Car("Toyota", 2022)
+
+print(my_car.model)
+print(my_car.year)
+
 
 # ----------------------------------------------------------------------------------------------------------------------
 
@@ -119,6 +293,28 @@
 
 # Call the send_notification() method for each instance, 
 # passing a message reminding to turn off the lights.
+
+### ANSWER ###
+
+# Create the SmartHome class
+class SmartHome:
+    def __init__(self, home_name, location, number_of_devices):
+        self.home_name = home_name
+        self.location = location
+        self.number_of_devices = number_of_devices
+
+    def send_notification(self, message):
+        print(f"Notification for {self.home_name} in {self.location}: {message}")
+
+
+home1 = SmartHome("Villa Rosa", "New York", 15)
+home2 = SmartHome("Green House", "California", 10)
+home3 = SmartHome("Sea View", "Florida", 20)
+
+home1.send_notification("Please remember to turn off the lights.")
+home2.send_notification("Please remember to turn off the lights.")
+home3.send_notification("Please remember to turn off the lights.")
+
 
 # ----------------------------------------------------------------------------------------------------------------------
 
@@ -171,3 +367,48 @@
 # tiger = Mammal('Tiger', 5, 4)
 # sparrow = Bird(True)
 # goldfish = Fish('Goldfish', 2, 'Many')
+
+### ANSWER ###
+
+# Base class
+class Animal:
+    def __init__(self, name, age):
+        # FIX 1: Instance attributes must use self
+        # Original code only reassigned local variables
+        self.name = name
+        self.age = age
+
+
+class Mammal(Animal):
+    def __init__(self, name, age, num_legs):
+        # FIX 2: Inherited from wrong class name (Animals → Animal)
+        super().__init__(name, age)
+        self.num_legs = num_legs
+
+
+class Bird(Animal):
+    def __init__(self, name, age, can_fly):
+        # FIX 3: Bird constructor was missing name and age parameters
+        # FIX 4: Bird did not call super().__init__()
+        super().__init__(name, age)
+        self.can_fly = can_fly
+
+
+class Fish(Animal):
+    def __init__(self, name, age, num_fins):
+        # FIX 5: Fish incorrectly inherited from Mammal
+        super().__init__(name, age)
+        self.num_fins = num_fins
+
+
+tiger = Mammal('Tiger', 5, 4)
+sparrow = Bird('Sparrow', 1, True)
+
+goldfish = Fish('Goldfish', 2, 6)
+
+
+# Optional: verify attributes
+print(tiger.name, tiger.age, tiger.num_legs)
+print(sparrow.name, sparrow.age, sparrow.can_fly)
+print(goldfish.name, goldfish.age, goldfish.num_fins)
+
